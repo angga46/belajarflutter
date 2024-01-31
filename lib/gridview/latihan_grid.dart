@@ -19,7 +19,7 @@ class LatihanGrid extends StatelessWidget {
               padding: EdgeInsets.all(10),
               width: double.infinity,
               height: 200,
-              color: Color.fromARGB(255, 187, 161, 16),
+              color: Colors.yellow,
               child: ListView(
                 padding: const EdgeInsets.all(8),
                 children: <Widget>[
@@ -28,7 +28,7 @@ class LatihanGrid extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                      color: Colors.black54,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -46,7 +46,7 @@ class LatihanGrid extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                      color: Colors.black54,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -64,7 +64,7 @@ class LatihanGrid extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                      color: Colors.black54,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -88,7 +88,7 @@ class LatihanGrid extends StatelessWidget {
               padding: EdgeInsets.all(10),
               width: double.infinity,
               height: 200,
-              color: Color.fromARGB(255, 255, 220, 23),
+              color: Colors.yellow,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 padding: const EdgeInsets.all(8),
@@ -97,7 +97,7 @@ class LatihanGrid extends StatelessWidget {
                     height: 50,
                     width: 200,
                     margin: EdgeInsets.all(10),
-                    color: Color.fromARGB(255, 241, 228, 77),
+                    color: Colors.yellow,
                     child: Stack(
                       fit: StackFit.expand,
                       children: [
@@ -127,7 +127,7 @@ class LatihanGrid extends StatelessWidget {
                     height: 50,
                     width: 200,
                     margin: EdgeInsets.all(10),
-                    color: Colors.amber,
+                    color: Colors.yellow,
                     child: Stack(
                       fit: StackFit.expand,
                       children: [
@@ -181,7 +181,7 @@ class LatihanGrid extends StatelessWidget {
                           ),
                         ),
                       ],
-                    ),
+                    ),  
                   ),
                   Container(
                     height: 50,

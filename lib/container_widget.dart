@@ -17,9 +17,9 @@ class ContainerWidget extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            Colors.grey,
-            //  Colors.deepPurpleAccent,
-            Colors.blueAccent
+            Colors.yellow,
+            Colors.orange,
+            Color.fromARGB(255, 255, 98, 0)
           ],
         ),
         borderRadius: BorderRadius.circular(10),
