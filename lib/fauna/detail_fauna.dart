@@ -1,37 +1,38 @@
+import 'package:belajar_flutter/fauna/list_fauna.dart';
 import 'package:flutter/material.dart';
 import '../../helpers/size_helper.dart';
-import 'detail_fauna_screen.dart';
+import '../fauna/detail_fauna.dart';
 
-class DetailWisataScreen extends StatelessWidget {
+class ListFaunaScreen extends StatelessWidget {
   final List<Map<String, dynamic>> faunaData = [
     {
       "nama": "Harimau",
       "jenis": "Karnivora",
-      "image": "assets/image/harimau.jpg",
+      "image": "assets/img/harimauasli.webp",
       "desc": "Harimau adalah"
     },
     {
-      "nama": "Singa",
+      "nama": "Mongoose",
       "jenis": "Karnivora",
-      "image": "assets/image/singa.jpg",
+      "image": "assets/img/mongoose.jpg",
       "desc": "Singa adalah"
     },
     {
-      "nama": "Serigala",
-      "jenis": "Karnivora",
-      "image": "assets/image/wolf.jpg",
+      "nama": "Simpanse",
+      "jenis": "Herbivora",
+      "image": "assets/img/simpanse.jpg",
       "desc": "Harimau adalah"
     },
     {
-      "nama": "Kucing",
+      "nama": "Jaguar",
       "jenis": "Karnivora",
-      "image": "assets/image/kucing.jpg",
+      "image": "assets/img/jaguar.jpg",
       "desc": "Kucing adalah"
     },
     {
-      "nama": "Tupai",
+      "nama": "Kucing",
       "jenis": "Omnivora",
-      "image": "assets/image/tupai.jpg",
+      "image": "assets/img/kucing.jpg",
       "desc": "Tupai adalah"
     },
   ];
@@ -44,7 +45,7 @@ class DetailWisataScreen extends StatelessWidget {
         width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/image"),
+            image: AssetImage("assets/image/harimau.jpg"),
             fit: BoxFit.cover,
           ),
         ),
@@ -56,7 +57,7 @@ class DetailWisataScreen extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => DetailFaunaScreen(
+                        builder: (context) =>  DetailFaunaScreen(
                               nama: faunaData[index]["nama"],
                               jenis: faunaData[index]["jenis"],
                               image: faunaData[index]["image"],

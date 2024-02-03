@@ -1,21 +1,26 @@
 import 'package:belajar_flutter/column_widget.dart';
 import 'package:belajar_flutter/container_widget.dart';
-import 'package:belajar_flutter/fauna/detail_fauna_screen.dart';
-import 'package:belajar_flutter/fauna/detail_wisata_screen.dart';
+import 'package:belajar_flutter/fauna/list_fauna.dart';
+import 'package:belajar_flutter/fauna/detail_fauna.dart';
 import 'package:belajar_flutter/gridview/grid_basic.dart';
 import 'package:belajar_flutter/gridview/grid_builder.dart';
 import 'package:belajar_flutter/gridview/grid_count.dart';
 import 'package:belajar_flutter/gridview/latihan_grid.dart';
 import 'package:belajar_flutter/gridview/latihan_grid.dart';
 import 'package:belajar_flutter/latihan_row&column.dart';
+import 'package:belajar_flutter/latihan_satu.dart';
 import 'package:belajar_flutter/listview_basic.dart';
 import 'package:belajar_flutter/logo_widget.dart';
 import 'package:belajar_flutter/screens/about_screen.dart';
 import 'package:belajar_flutter/screens/form_screen.dart';
 import 'package:belajar_flutter/screens/home_screen.dart';
 import 'package:belajar_flutter/screens/Navigator.dart';
-import 'package:belajar_flutter/fauna/detail_fauna_screen.dart';
-import 'package:belajar_flutter/fauna/detail_wisata_screen.dart';
+import 'package:belajar_flutter/fauna/detail_fauna.dart';
+import 'package:belajar_flutter/fauna/detail_fauna.dart';
+import 'package:belajar_flutter/screens/login_screen.dart';
+import 'package:belajar_flutter/screens/profile_screen.dart';
+import 'package:belajar_flutter/screens/register_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -30,28 +35,48 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Ini Project Flutter Pertamaku",
-      initialRoute: '/',
-      routes: {
-        '/': (context) => FaunaForm(),
-        
-      },
+      home: CheckAuth(),
     );
   }
 }
 
-class TextWidget extends StatelessWidget {
-  const TextWidget({
-    super.key,
-  });
+class CheckAuth extends StatefulWidget {
+  @override
+  _CheckAuthState createState() => _CheckAuthState();
+}
+
+class _CheckAuthState extends State<CheckAuth> {
+  bool isAuth = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _checkIfLoggedIn();
+  }
+
+  void _checkIfLoggedIn() async {
+    SharedPreferences localStorage = await SharedPreferences.getInstance();
+    var token = localStorage.getString('token');
+    if (token != null) {
+      if (mounted) {
+        setState(() {
+          isAuth = true;
+        });
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        "Hello ",
-        style: TextStyle(
-            color: Colors.black54, fontSize: 24, fontWeight: FontWeight.bold),
-      ),
+    Widget child;
+    if (isAuth) {
+      child = BottomNavigationMenu();
+    } else {
+      child = LoginScreen();
+    }
+
+    return Scaffold(
+      body: child,
     );
   }
 }
@@ -69,9 +94,9 @@ class _BottomNavigationMenuState extends State<BottomNavigationMenu> {
 
   List _pages = [
     HomeScreen(),
-    ListnView(),
-    LatihanGrid(),
-    ContainerWidget()
+    ListFaunaScreen(),
+    FormBoking(),
+    ProfileScreen()
   ];
 
   _changeTab(int index) {
@@ -82,20 +107,20 @@ class _BottomNavigationMenuState extends State<BottomNavigationMenu> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: _pages[_selectedTab],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedTab,
         onTap: (index) => _changeTab(index),
-        selectedItemColor: Colors.orange,
+        selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.grey,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "ListView"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.grid_3x3_outlined), label: "GridView"),
+              icon: Icon(Icons.car_rental_rounded), label: "Wisata"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.contact_mail), label: "Container"),
+              icon: Icon(Icons.payments_rounded), label: "Beli Tiket"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.account_balance_wallet), label: "Profil"),
         ],
       ),
     );

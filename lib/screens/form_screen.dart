@@ -3,14 +3,14 @@ import 'package:intl/intl.dart';
 import 'package:belajar_flutter/helpers/size_helper.dart';
 import 'package:belajar_flutter/screens/output_form_screen.dart';
 
-class FaunaForm extends StatefulWidget {
-  const FaunaForm({super.key});
+class FormBoking extends StatefulWidget {
+  const FormBoking({super.key});
 
   @override
-  State<FaunaForm> createState() => _FaunaFormState();
+  State<FormBoking> createState() => _FormBokingState();
 }
 
-class _FaunaFormState extends State<FaunaForm> {
+class _FormBokingState extends State<FormBoking> {
   final _formKey = GlobalKey<FormState>();
   final _scaffoldKey = GlobalKey<ScaffoldState>();
 

@@ -22,7 +22,7 @@ class DetailFaunaScreen extends StatelessWidget {
           width: double.infinity,
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("assets/images/"),
+              image: AssetImage("assets/images/harimau.jpg"),
               fit: BoxFit.cover,
             ),
           ),

@@ -1,3 +1,5 @@
+import 'package:belajar_flutter/fauna/detail_fauna.dart';
+import 'package:belajar_flutter/fauna/list_fauna.dart';
 import 'package:belajar_flutter/latihan_satu.dart';
 import 'package:flutter/material.dart';
 
@@ -8,13 +10,13 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Beranda Saya"),
+        title: Text("HOME"),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text("Halaman Utama"),
+            Text("Halaman Home"),
             TextButton(
               child: Text("About"),
               onPressed: () {
@@ -26,7 +28,7 @@ class HomeScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => LatihanSatu(),
+                    builder: (context) =>  ListFaunaScreen(),
                   ),
                 );
               },
